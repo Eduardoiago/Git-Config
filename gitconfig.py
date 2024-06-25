@@ -48,6 +48,32 @@ def info():
     print("O gitConfig é uma ferramenta desenvolvida em python para configurar o git em uma nova máquina.")
     input("\nPressione ENTER para voltar ao Menu.")
 
+def genssh_key():  
+    print("\nSSH CONFIG")
+    print("Se você estiver usando um sistema legado que não suporta o algoritmo Ed25519, use RSA 4093.\n")
+    print("1. Gerar chave SSH usando \033[3mEd25519\033[m")
+    print("2. Gerar chave SSH usando \033[3mRSA 4093\033[m")
+    print("3. Voltar ao Menu")
+    
+    choice = input("\nInsira a opção: ")
+
+    if choice == '1':
+        email = input("\nDigite seu email do Github: ")
+        os.system(f'ssh-keygen -t ed25519 -C "{email}"') # Gerando uma nova chave SSH Ed25519.
+        print("\nChave SSH-Ed25519 gerada com sucesso!")
+        print("Para visualizar seus IDs vá até (.ssh) em home.")
+    elif choice == '2':
+        email_rsa = input("\nDigite seu email do Github: ")
+        os.system(f'ssh-keygen -t rsa -b 4096 -C "{email_rsa}"') # Gerando uma nova chave SSH rsa 4096.
+        os.system('eval "$(ssh-agent -s)"')
+        os.system('ssh-add ~/.ssh/id_rsa')
+        print("\nChave SSH RSA 4096 gerada com sucesso!")
+        print("Para visualizar seus IDs vá até (.ssh) em home.")
+    elif choice == '3':
+        main()      
+    else:
+        print("\nOpção inválida. Por favor, escolha uma opção válida.")
+
 def list_config():
     os.system("git config --list") # Listar todas as configurações do git.
 
@@ -85,6 +111,7 @@ def main():
         print("4. Configurar branch principal")
         print("5. Configurar nome de usuário local (por repositório)")
         print("6. Configurar endereço de e-mail local (por repositório)")
+        print("7. Gerar chave SSH (Ed25519 ou rsa 4096)")
         print("9. Listar as configurações do git")
         print("x. Sair")
         
@@ -102,6 +129,8 @@ def main():
             set_username_repo()
         elif choice == '6':
             set_email_repo()
+        elif choice == '7':
+            genssh_key()
         elif choice == '9':
             list_config()
         elif choice == '--info':
