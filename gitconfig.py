@@ -38,8 +38,20 @@ def set_email_repo():
     print("\nEndereço de e-mail local configurado com sucesso!")
     input("\nPressione ENTER para voltar ao Menu.")
 
+def info():
+    clear_screen()
+    print(line)
+    print("♦ GIT CONFIG™ ♦")
+    print(line)
+    print("Github: https://github.com/Eduardoiago")
+    print("Developed by Eduardo Iago | Versão: 1.0.0\n")
+    print("O gitConfig é uma ferramenta desenvolvida em python para configurar o git em uma nova máquina.")
+    input("\nPressione ENTER para voltar ao Menu.")
+
 def list_config():
     os.system("git config --list") # Listar todas as configurações do git.
 
 def clear_screen():
     os.system("clear" if os.name == "posix" else "cls") # Limpa a tela do console.
+
+line = 27*"⣿⣿"  
