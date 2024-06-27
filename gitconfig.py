@@ -108,9 +108,7 @@ titleMenu = """\033[3m
 def main():
     while True:
         clear_screen()
-        print(line)
         print(titleMenu)
-        print(line)
         print("\n1. Configurar nome de usuário global")
         print("2. Configurar endereço de e-mail global")
         print("3. Configurar editor padrão")
