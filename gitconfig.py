@@ -74,6 +74,12 @@ def genssh_key():
     else:
         print("\nOpção inválida. Por favor, escolha uma opção válida.")
 
+def set_alias(): # Configurar alias.
+    alias_name = input("Digite o nome do alias: ")
+    command = input("\nDigite o comando Git para associar ao alias: ")
+    os.system(f'git config --global alias.{alias_name} "{command}"')
+    print(f"Alias '{alias_name}' configurado com sucesso!")
+
 def list_config():
     os.system("git config --list") # Listar todas as configurações do git.
 
@@ -112,6 +118,7 @@ def main():
         print("5. Configurar nome de usuário local (por repositório)")
         print("6. Configurar endereço de e-mail local (por repositório)")
         print("7. Gerar chave SSH (Ed25519 ou rsa 4096)")
+        print("8. Configurar alias")
         print("9. Listar as configurações do git")
         print("x. Sair")
         
@@ -131,6 +138,8 @@ def main():
             set_email_repo()
         elif choice == '7':
             genssh_key()
+        elif choice == '8':
+            set_alias()
         elif choice == '9':
             list_config()
         elif choice == '--info':
