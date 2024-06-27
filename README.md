@@ -19,9 +19,9 @@ _______
 - Follow the installation instructions provided to complete the process.
 _______
 
-## Layout
+### Layout
 
-<img src="" alt="layout">
+<img src="/assets/img/layout-gitConfig.png" alt="layout">
 
 ## Technologies used:
 
