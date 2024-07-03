@@ -1,7 +1,7 @@
 
 <img src="/assets/img/title-gitconfig.png" alt="titleNameGitconfig">
 
-> # gitConfig
+> # Git Config
 
 #### Python Script to Configure git 
 
